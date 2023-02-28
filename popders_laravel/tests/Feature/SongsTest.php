@@ -10,17 +10,17 @@ class SongsTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
 
+    public function testUserCanAddASong()
+    {
+        $this->withoutExceptionHandling();
 
+        $attributes = [
+            'title' => $this->faker->sentence,
+            'artist'=> $this->faker->sentence
+        ];
 
- public function a_user_can_create_a_song()
- {
-   $attributes = [
-    'title' => $this->faker->sentence,
-    'artist'=> $this->faker->sentence
+        $this->post('/songs', $attributes);
 
-    ];
-    $this->post('/songs', $attributes);
-
-    $this->assertDatabaseHas('songs', $attributes);
- }
+        $this->assertDatabaseHas('songs', $attributes);
+    }
 }
