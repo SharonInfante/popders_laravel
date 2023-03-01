@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('songs', function(Blueprint $table){
-            $table->id_song();
-            $table->id_users();
+            $table->id('id_song');
+            $table->id('id.user');
             $table->string('title');
             $table->string('artist');
             $table->string('genre');
             $table->string('url');
             $table->boolean('status');
-            $table->longblob('img');
+            $table->longblob('avatar');
             $table->timestamps();
             $table->foreign('user_id')->references('id_song')->on('users');
 
