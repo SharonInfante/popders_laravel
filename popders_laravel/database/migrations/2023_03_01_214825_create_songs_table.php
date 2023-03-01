@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('avatar');
             $table->boolean('status');
             $table->timestamps();
-            $table->foreignId('id_user')->constrained('users');
-            //$table->foreign('id_user')->references('id_song')->on('users');
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('songs');
     }
 };
