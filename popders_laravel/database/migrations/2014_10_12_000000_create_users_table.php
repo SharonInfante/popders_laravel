@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\RoleTypeEnum;
 
 return new class extends Migration
 {
@@ -16,9 +17,9 @@ return new class extends Migration
             // $table->foreignId('id_user')->constrained();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('role'); //recibe números según cantidad de roles, a definir en el modelo
+            $table->enum('role', RoleTypeEnum::toArray())->default(RoleTypeEnum::Coder);
             $table->string('password');
-            $table->rememberToken();
+            $table->string('avatar');
             $table->timestamps();
         });
     }
