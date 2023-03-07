@@ -16,13 +16,13 @@
     <!-- favicon -->
     <!-- estilos -->
 </head>
-<body>
-    <div class="img bg-no-repeat bg-cover bg-center">
+<body class="img bg-no-repeat bg-cover bg-center">
+    
     <!-- header -->
     <!-- nav -->
     @yield('content')
     <!-- footer -->
     <!-- script -->
-</div>
+
 </body>
 </html>

@@ -1,9 +1,12 @@
 @extends('template')
 
 @section('content')
-    <a href="{{ route('login') }}">Longin</a>
-    <a href="{{ route('register') }}">Register</a>
+
     <div class="container flex flex-col bg-stone-50 opacity-50 rounded-md">
+        <a href="{{ route('login') }}">Longin</a>
+        <a href="{{ route('register') }}">Register</a>
+
+        
         <div class="flex justify-center mt-16">
             <div class="h-64 w-64 flex justify-center">
                 <div class="rounded-full h-48 w-48 border-4 border-amber-400 text-center flex items-center justify-center"><a
