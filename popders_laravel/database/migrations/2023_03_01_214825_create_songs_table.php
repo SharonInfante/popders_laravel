@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id('id_song');
-            $table->integer('id_coder');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('users');
             $table->string('title');
             $table->string('artist');
             $table->string('genre');
             $table->string('url');
-            $table->string('avatar');
+            $table->string('image');
             $table->boolean('status');
             $table->timestamps();
-            $table->foreignId('id_user')->constrained('users');
-            //$table->foreign('id_user')->references('id_song')->on('users');
         });
     }
 
@@ -31,6 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('songs');
     }
 };
+?>

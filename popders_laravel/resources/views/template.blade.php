@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <title>@yield('title')</title>
-    <!-- favicon -->
-    <!-- estilos -->
+    <link rel="stylesheet" href='../../../css/app.css'>
+    <title>Document</title>
 </head>
 <body>
-    <!-- header -->
-    <!-- nav -->
+    
+
     @yield('content')
-    <!-- footer -->
-    <!-- script -->
 </body>
 </html>
