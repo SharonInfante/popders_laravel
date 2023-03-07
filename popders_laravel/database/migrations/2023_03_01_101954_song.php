@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('status');
             $table->timestamps();
             $table->foreignId('id_user')->constrained('users');
-            //$table->foreign('id_user')->references('id_song')->on('users');
+            //$table->foreign('id_user')->references('id_email')->on('users');
         });
     }
 
