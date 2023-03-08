@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Añadir Canción</h1>
-    <form action="{{route('addSong.store')}}" method="POST">
+    <form action="{{route('addSong.store')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -35,7 +35,10 @@
 
         <label>
             Imagen
-            <input type="file" name="image">
+            <input type="file" name="image" accept="image/*">
+            @error('file')
+             <small class="text-rose-500">{{$message}}</small>
+            @enderror
         </label><br><br>
         <button type="submit">Enviar</button>
     </form>

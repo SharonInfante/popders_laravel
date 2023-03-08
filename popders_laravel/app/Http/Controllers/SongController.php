@@ -20,6 +20,10 @@ class SongController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'file' => 'require|image|max:2048'
+        ]);
+
         $songs = new Song();
 
         $songs->title = $request->title;
