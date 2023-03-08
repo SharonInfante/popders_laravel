@@ -8,7 +8,7 @@ use App\Models\Song;
 class SongController extends Controller
 {
     public function index()
-    {   
+    {
         $songs = Song::all();
         return view('/playlist', compact('songs'));
     }
@@ -34,31 +34,29 @@ class SongController extends Controller
     }
 
     public function show($id_song)
-    {   
-        $songs = Song::find($id_song);  
+    {
+        $songs = Song::find($id_song);
         return view('songDescription', compact('songs'));
     }
 
-    public function edit($id_song) 
-    {   
-        $songs = Song::find($id_song); 
+    public function edit($id_song)
+    {
+        $songs = Song::find($id_song);
         return view('editSong', compact('songs'));
     }
 
-    public function update(Request $request, $id_song)
+    public function update(Request $request, $id)
     {
-        $songs = new Song([$id_song]);
+        $song = Song::findOrFail($id);
 
-        $songs->title = $request->title;
-        $songs->artist = $request->artist;
-        $songs->genre = $request->genre;
-        $songs->url = $request->url;
-        $songs->image = $request->image;
+        $song->title = $request->input('title');
+        $song->artist = $request->input('artist');
+        $song->genre = $request->input('genre');
+        $song->url = $request->input('url');
+        $song->image = $request->input('image');
 
-        $songs->save();
+        $song->save();
 
-        return redirect()->route('songDescription.show', $songs);
+        return redirect()->route('songDescription.show', $song);
     }
-
-    
 }
