@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app')
 
 @section('content')
@@ -21,3 +22,17 @@
     </div>
 </div>
 @endsection
+=======
+@extends('template')
+
+@section('content')
+
+<a href="{{route('login')}}">Longin</a>
+<a href="{{route('register')}}">Register</a>
+
+<h1>POPDERS HOME</h1>
+
+<a href="{{route('playlist.index')}}">Playlist</a>
+
+@endsection
+>>>>>>> 320000b8a4333f5990bd4b236930c687c9283583
