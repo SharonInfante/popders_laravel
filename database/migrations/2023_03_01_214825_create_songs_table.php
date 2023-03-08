@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id('id_song');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_user')->nullable()->default(null);
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->string('title');
             $table->string('artist');
             $table->string('genre');
             $table->string('url');
             $table->string('image');
-            $table->boolean('status');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
@@ -33,4 +33,3 @@ return new class extends Migration
         Schema::dropIfExists('songs');
     }
 };
-?>

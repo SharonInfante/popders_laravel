@@ -47,7 +47,7 @@ class SongController extends Controller
 
     public function update(Request $request, $id_song)
     {
-        $songs = new Song($id_song);
+        $songs = new Song([$id_song]);
 
         $songs->title = $request->title;
         $songs->artist = $request->artist;
@@ -62,5 +62,3 @@ class SongController extends Controller
 
     
 }
-
-?>
