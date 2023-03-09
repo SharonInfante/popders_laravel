@@ -42,18 +42,20 @@
 
 @section('content')
 <div class="div-content">
-    <div class="container flex flex-col bg-stone-50/40 rounded-md max-w-4xl">
-        <a href="{{ route('login') }}">Longin</a>
-        <a href="{{ route('register') }}">Register</a>
+    <div class="container flex flex-col bg-stone-50/40 rounded-md max-w-4xl ">
+       <div class="flex justify-end mb-16">
+        <a href="{{ route('register') }}"><img class="mx-auto h-14 w-auto mr-6" src="{{ asset('img/icons/icono-user-add.png') }}" alt="icono reister"></a>
+        <a href="{{ route('login') }}"><img class="mx-auto h-14 w-auto" src="{{ asset('img/icons/login-user.png') }}" alt="icono login"></a>
+       </div>
 
 
-        <div class="flex justify-center mt-16">
+        <div class="flex justify-centermt-16 mb-12">
             <div class="h-64 w-64 flex justify-center">
-                <div class="rounded-full h-48 w-48 border-4 border-amber-200 text-center flex items-center justify-center"><a
-                        href="{{ route('playlist.index') }}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 stroke-amber-200 stroke-1 hover:stroke-2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                        </svg>
-                        </a></div>
+                <div class="bg-[url('img/avatares/natalia.png')] rounded-full h-48 w-48 border-4 border-amber-200 text-center flex items-center justify-center">
+                    <a href="{{ route('playlist.index') }}">
+                        <img class="rounded-full h-44 w-44" src="{{ asset('img/avatares/diana.png') }}" alt="avatar">
+                    </a>
+                </div>
             </div>
             <div class="flex flex-col justify-center">
                 <div class="ml-10 text-center">
@@ -81,14 +83,17 @@
             </div>
         </div>
         <div class="flex justify-center align-bottom">
-            <div class="rounded-full h-20 w-20 border-4 border-amber-200 text-center flex items-center justify-center m-5">
-              <img src="" alt="">
+            <div class="rounded-full h-21 w-20 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+                <a href="{{ route('playlist.index') }}"><img class="rounded-full h-20 w-20" src="{{ asset('img/avatares/natalia.png') }}" alt="avatar"></a>
             </div>
-            <div class="rounded-full h-20 w-20 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+            <div class="rounded-full h-21 w-21 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+                <a href="{{ route('playlist.index') }}"><img class="rounded-full h-20 w-20" src="{{ asset('img/avatares/gabriela.png') }}" alt="avatar"></a>
             </div>
-            <div class="rounded-full h-20 w-20 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+            <div class="rounded-full h-21 w-21 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+                <a href="{{ route('playlist.index') }}"><img class="rounded-full h-20 w-20" src="{{ asset('img/avatares/sharon.png') }}" alt="avatar"></a>
             </div>
-            <div class="rounded-full h-20 w-20 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+            <div class="rounded-full h-21 w-21 border-4 border-amber-200 text-center flex items-center justify-center m-5">
+                <a href="{{ route('playlist.index') }}"><img class="rounded-full h-20 w-20" src="{{ asset('img/avatares/meena.png') }}" alt="avatar"></a>
             </div>
         </div>
     </div>
