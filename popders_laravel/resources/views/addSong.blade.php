@@ -4,30 +4,18 @@
 @section('title', 'Añade tu canción')
 
 @section('content')
-    <div class="div-content p-10">
-        <!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<div>
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-
-      <div class="mt-5 md:col-span-2 md:mt-0">
-
+<div class="div-content p-10">
+  <div class="flex flex-col justify-center items-center">
+    <div class="mt-5 md:col-span-2 md:mt-0 max-w-lg col-start-3">
+        
         <form action="{{ route('addSong.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
           <div class="shadow sm:overflow-hidden sm:rounded-md">
             <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+                <div class="col-span-6 sm:col-span-4">
+                    <a href="{{ route('home') }}"> <img class="mx-auto h-24 w-auto" src="{{ asset('img/icons/logo-popCoder-multicolor.png') }}" alt="logo"></a>
+                  <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-indigo-600">Agrega tu canción</h2>
+                </div>
 
                 <div class="col-span-6 sm:col-span-4">
                     <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Título</label>
@@ -75,15 +63,16 @@
                     <small class="text-rose-500">{{ $message }}</small>
                     @enderror
                   </div>
-            </div>
-            <button type="submit" class="group relative flex w-full justify-center rounded-md py-2 px-3 text-sm mb-10 font-semibold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Añadir
-              </button>
-            
-          </div>
+               
+                <button type="submit" class="group relative flex w-full justify-center rounded-md py-2 px-3 text-sm mb-10 font-semibold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  Añadir
+                </button>
+               </div>
+             </div>
+           </div>
         </form>
+
       </div>
-    </div>
-  </div>
-    </div>
+   </div>
+</div>
 @endsection
