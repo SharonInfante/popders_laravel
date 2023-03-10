@@ -19,7 +19,7 @@
                         <a class="text-sm" href="{{route('songDescription.show', $song->id_song)}}">Título: {{$song->title}}</a>
                         <p class="text-sm">Artista: {{$song->artist}}</p>
                         <p class="text-sm">Género: {{$song->genre}}</p>
-                        <p class="text-sm">Url: {{$song->url}}</p>
+                        <a class="text-sm" href="#"> Url: {{$song->url}}</a>
                         <form action="{{ route('addSong.store') }}" method="POST">
                             <div class="flex items-center">
                                 <input id="status" name="status" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
@@ -30,7 +30,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-gray-50 px-2 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div class="bg-gray-50 px-2 py-1 sm:flex sm:flex-row-reverse sm:px-6">
                 <button type="button" class="mr-3 mt-1 inline-flex w-full justify-center rounded-md bg-slate-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 sm:ml-3 sm:w-auto">Editar</button>
                 <button type="button" class="mr-3 mt-1 inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 sm:ml-3 sm:w-auto">Eliminar</button>
               </div>
