@@ -14,9 +14,27 @@
     margin-top: 8vh;
     padding: 20px;
 }
+
 .div-content{
     width: 100vw;
     height: 100vh;
+}
+.d-content{
+    height: 75vh;
+    width: 80vw;
+    padding: 20px;
+}
+.menu{
+    height: 100vh;
+    width: 70px;
+    padding: 20px 5px;
+}
+.d-menu{
+    height: 100vh;
+    width: 5px;
+}
+.screen{
+    height: 75vh;
 }
 ul{
     list-style: none;

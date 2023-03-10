@@ -20,6 +20,6 @@ module.exports = {
         {tailwindcss: {},
         autoprefixer: {},
        }
-      //  require('@tailwindcss/forms'),
+      //  require('@tailwindcss/forms')
   ],
 }
