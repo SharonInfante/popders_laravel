@@ -44,20 +44,20 @@ class SongController extends Controller
         return view('editSong', compact('songs'));
     }
 
-    // public function update(Request $request, Song $song)
-    // {
-    //     $songs = new Song();
+    public function update(Request $request, $id)
+    {
+        $song = Song::findOrFail($id);
 
-    //     $songs->title = $request->title;
-    //     $songs->artist = $request->artist;
-    //     $songs->genre = $request->genre;
-    //     $songs->url = $request->url;
-    //     $songs->image = $request->image;
+        $song->title = $request->input('title');
+        $song->artist = $request->input('artist');
+        $song->genre = $request->input('genre');
+        $song->url = $request->input('url');
+        $song->image = $request->input('image');
 
-    //     $songs->save();
+        $song->save();
 
-    //     return redirect()->route('songDescription');
-    // }
+        return redirect()->route('songDescription.show', $song);
+    }
 
     
 }
