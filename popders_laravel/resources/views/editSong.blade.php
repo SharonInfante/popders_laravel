@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Editar Canción</h1>
-    <form action="{{route('updateSong.update', $songs->id_song)}}" method="POST">
+    <form action="{{route('addSong.store')}}" method="POST">
 
         @csrf
 
