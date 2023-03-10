@@ -31,7 +31,7 @@ Route::controller(SongController::class)->group(function()
     Route::post('addSong','store')->name('addSong.store');
     Route::get('songDescription/{id_song}','show')->name('songDescription.show');
     Route::get('editSong/{songs}', 'edit')->name('editSong.edit');
-    Route::put('editSong/{id_song}','update')->name('updateSong.update');
+    // Route::put('editSong/{id_song}','update')->name('updateSong.update');
 });
 
 ?>
