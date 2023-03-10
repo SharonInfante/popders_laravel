@@ -15,6 +15,7 @@ class SongTests extends TestCase
     use RefreshDatabase;
 
     public function test_can_displays_songs()
+
     /**
      * Test that checks if a song can be displayed.
      * 
@@ -47,6 +48,7 @@ class SongTests extends TestCase
     }
 
     public function test_can_create_a_song()
+
     /**
      * Test that checks if a song can be created.
      * 
@@ -61,6 +63,7 @@ class SongTests extends TestCase
     }
 
     public function test_can_show_a_created_song()
+
     /**
      * Test that checks if a song can be show when created.
      * 
@@ -88,6 +91,7 @@ class SongTests extends TestCase
         });
     }
     public function test_can_edit_a_song()
+
     /**
      * Test that checks if a song can be edited.
      * 
@@ -113,6 +117,7 @@ class SongTests extends TestCase
     }
 
     public function test_can_update_a_song()
+
     /**
      * Test that checks if a song can be updated.
      * 
