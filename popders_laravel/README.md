@@ -13,13 +13,13 @@ This project is a platform created to manage the songs to say good morning to th
 
 ## Screenshots :desktop_computer:
 ### This is the Popder's Logo
-![This is an image](./frontend/assets/icons/logo-popCoder-multicolor.png)
+![This is an image](./public/img/icons/logo-popCoder-multicolor.png)
 
 ### These are the page views:
-![This is an image]()
-![This is an image]()
-![This is an image]()
-![This is an image]()
+![This is an image](./public/img/landings/home.png)
+![This is an image](./public/img/landings/acceder.png)
+![This is an image](./public/img/landings/crear-usuario.png)
+![This is an image](./public/img/landings/agrega-cancion.png)
 ![This is an image]()
 
 ## Technology stack :gear:
