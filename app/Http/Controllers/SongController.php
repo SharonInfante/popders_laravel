@@ -41,6 +41,7 @@ class SongController extends Controller
 
     public function edit(Song $songs) 
     {   
+        
         return view('editSong', compact('songs'));
     }
 
@@ -58,7 +59,10 @@ class SongController extends Controller
 
         return redirect()->route('songDescription.show', $song);
     }
-
+    public function destroy(Song $song) 
+    {   
+        $song->delete();
+    }
     
 }
 
