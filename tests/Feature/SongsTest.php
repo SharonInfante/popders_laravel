@@ -2,13 +2,16 @@
 namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 use App\Models\Song;
 class SongTests extends TestCase
 {
     use WithoutMiddleware;
     use RefreshDatabase;
+    use WithFaker;
     public function test_can_displays_songs()
     /**
      * Test that checks if a song can be displayed.
@@ -37,14 +40,23 @@ class SongTests extends TestCase
         $response->assertSee('November rain');
     }
     public function test_can_create_a_song()
-    /**
-     * Test that checks if a song can be created.
-     *
-     */
     {
-        $response = $this->get('/addSong');
-        $response->assertStatus(200);
-        $response->assertViewIs('addSong');
+        Storage::fake('public');
+        $response = $this->post(route('addSong.store'), [
+            'title' => $this->faker->word(),
+            'artist' => $this->faker->name(),
+            'genre' => $this->faker->word(),
+            'url' => $this->faker->url(),
+            'image' => UploadedFile::fake()->image('song.jpg'),
+        ]);
+        $response->assertRedirect(route('home.index'));
+        $this->assertDatabaseHas('songs', [
+            'title' => $response->title,
+            'artist' => $response->artist,
+            'genre' => $response->genre,
+            'url' => $response->url,
+            'image' => 'storage/' . $response->image->hashName(),
+        ]);
     }
     public function test_can_show_a_created_song()
     /**
@@ -77,7 +89,7 @@ class SongTests extends TestCase
      */
     {
         $song = Song::create([
-            'title'=> 'Sweet Child of Mine',
+            'title' => 'Sweet Child of Mine',
             'artist' => 'Guns and Roses',
             'genre' => 'Rock',
             'url' => 'https://www.youtube.com/watch?v=1w7OgIMMRc4',
@@ -104,7 +116,7 @@ class SongTests extends TestCase
             'url' => 'https://www.youtube.com/watch?v=tAGnKpE4NCI',
             'image' => 'nothing.png'
         ]);
-        $response = $this->put(route('updateSong.update', $song->id_song), [
+        $response = $this->put(route('editSong.edit', $song->id_song), [
             'title' => 'Nothing else matters',
             'artist' => 'Metallica',
             'genre' => 'Rock',
