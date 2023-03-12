@@ -44,14 +44,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-<<<<<<< HEAD
-=======
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
     }
 
->>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a
     public function songs()
     {
         return $this->hasMany(Song::class);
