@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Session\Middleware\StartSession;
 
 /*
@@ -18,24 +19,55 @@ use Illuminate\Session\Middleware\StartSession;
 |
 */
  
-Route::controller(HomeController::class)->group(function()
-{
-    Route::get('/', 'indexHome')->name('home');
-});
+// Route::controller(HomeController::class)->group(function()
+// {
+//     Route::get('/', 'indexHome')->name('home');
+// });
 
-Route::controller(RegisterController::class)->group(function()
-{
-    Route::get('/register', 'showRegister')->name('register.show');
-    Route::post('/register', 'register')->name('register');
-});
+// Route::controller(RegisterController::class)->group(function()
+// {
+//     Route::get('/register', 'showRegister')->name('register.show');
+//     Route::post('/register', 'register')->name('register');
+// });
 
-Route::controller(LoginController::class)->group(function()
-{
-    Route::get('/login', 'showLogin')->name('login.show');
-    Route::post('/login', 'login')->name('login');
-});
+// Route::controller(LoginController::class)->group(function()
+// {
+//     Route::get('/login', 'showLogin')->name('login.show');
+//     Route::post('/login', 'login')->name('login');
+// });
 
-Route::middleware(['web', StartSession::class])->group(function () {
+// Route::get('/logout', [LogoutController::class], 'logout')->name('deleteSong.destroy');
+
+// Route::middleware(['web', StartSession::class])->group(function () {
+//     Route::controller(SongController::class)->group(function()
+//     {
+//         Route::get('playlist', 'index')->name('playlist.index');
+//         Route::get('addSong', 'create')->name('addSong.create');
+//         Route::post('addSong','store')->name('addSong.store');
+//         Route::get('songDescription/{id_song}','show')->name('songDescription.show');
+//         Route::get('editSong/{songs}', 'edit')->name('editSong.edit');
+//         Route::post('editSong/{id_song}','update')->name('updateSong.update');
+//         Route::get('destroySong/{id_song}', 'destroy')->name('deleteSong.destroy');
+//     });
+// });
+
+Route::middleware(['web'])->group(function () {
+    Route::controller(HomeController::class)->group(function() {
+        Route::get('/', 'indexHome')->name('home');
+    });
+
+    Route::controller(RegisterController::class)->group(function() {
+        Route::get('/register', 'showRegister')->name('register.show');
+        Route::post('/register', 'register')->name('register');
+    });
+
+    Route::controller(LoginController::class)->group(function() {
+        Route::get('/login', 'showLogin')->name('login.show');
+        Route::post('/login', 'login')->name('login');
+    });
+
+    Route::get('/logout', [LogoutController::class], 'logout')->name('logout');
+
     Route::controller(SongController::class)->group(function()
     {
         Route::get('playlist', 'index')->name('playlist.index');
@@ -47,5 +79,4 @@ Route::middleware(['web', StartSession::class])->group(function () {
         Route::get('destroySong/{id_song}', 'destroy')->name('deleteSong.destroy');
     });
 });
-
 ?>

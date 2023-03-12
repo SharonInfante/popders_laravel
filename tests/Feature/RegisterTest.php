@@ -26,22 +26,28 @@ class RegisterTest extends TestCase
         $response->assertViewIs('register');
     }
 
-    public function test_sends_data_to_registration_form()
+    public function test_register_to_a_user()
     {
+        // $user = User::create([
+        //     'name' => 'Paula',
+        //     'email' => 'paula@gmail.com',
+        //     'password' => bcrypt('123456789'),
+        //     'avatar' => 'foto.jpg'
+        // ]);
 
-        $user = User::create([
-            'name' => 'Maria Teresa',
-            'email' => 'mariate@gmail.com',
-            'password' => '123456789',          
-        ]);
+        $this->get('register')->assertSee('register');
 
-        $response = $this->post('register',[
-            'name' => 'Maria Teresa',
-            'email' => 'mariate@gmail.com',
-            'password' => '123456789',                      
-        ]);
- 
+        $credentials = [
+            'name' => 'Paula',
+            'email' => 'paula@gmail.com',
+            'password' => '123456789',
+            'password_confirmation' => '123456789',
+            'avatar' => 'foto.jpg'
+        ];
+
+        $response = $this->post('register', $credentials);
         $response->assertRedirect('login');
-       
+
+        $this->get('login')->assertOk();
     }
 }

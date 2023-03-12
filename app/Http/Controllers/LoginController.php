@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -13,7 +14,7 @@ class LoginController extends Controller
     public function showLogin()
     {
         if (Auth::check()){
-            return redirect()->route('home');
+            return redirect()->route('/');
         }
         return view('login');
     }
@@ -25,20 +26,38 @@ class LoginController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
         if (!$user) {
-            dd('Error: credenciales incorrectas');
-            return redirect()->to('login')->withErrors('auth.failed');
+            // dd('Error: credenciales incorrectas');
+            return redirect()->to('login')->withErrors(['auth.failed' => 'Error: credenciales incorrectas']);
         }
 
-        Auth::login($user);
+        Auth::login($user, $request->has('remember'));
 
-        return $this->authenticated($request, $user);             
+        Session::flush();
+        Session::regenerate();
+        return redirect()->intended('/');
     }
 
-    public function authenticated(Request $request, $user)
-    {
-        dd('User authenticated:', $user);
-        return redirect()->route('home');
-    }
+    // public function login(LoginRequest $request)
+    // {
+    //     $credentials = $request->getCredentials();
+
+    //     $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+    //     if (!$user) {
+    //         // dd('Error: credenciales incorrectas');
+    //         return redirect()->to('login')->withErrors(['auth.failed' => 'Error: credenciales incorrectas']);
+    //     }
+
+    //     Auth::login($user, $request->has('remember'));
+
+    //     return $this->authenticated($request, $user);             
+    // }
+
+    // public function authenticated(Request $request, $user)
+    // {
+    //     // dd('User authenticated:', $user);
+    //     return redirect()->route('home');
+    // }
 }
 
  

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\User;
 
 class RegisterRequest extends FormRequest
 {
@@ -29,4 +30,5 @@ class RegisterRequest extends FormRequest
             'avatar' => 'required',
         ];
     }
+
 }
