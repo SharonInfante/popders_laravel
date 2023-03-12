@@ -1,11 +1,7 @@
 <?php
-<<<<<<< HEAD
-namespace Tests\Feature;
-=======
 
 namespace Tests\Feature;
 
->>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
