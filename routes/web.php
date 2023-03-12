@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\Controller;
 use Illuminate\Session\Middleware\StartSession;
 
 /*
@@ -51,22 +52,32 @@ use Illuminate\Session\Middleware\StartSession;
 //     });
 // });
 
-Route::middleware(['web'])->group(function () {
+    Route::middleware(['web'])->group(function () {
+
+
     Route::controller(HomeController::class)->group(function() {
         Route::get('/', 'indexHome')->name('home');
     });
+
+
 
     Route::controller(RegisterController::class)->group(function() {
         Route::get('/register', 'showRegister')->name('register.show');
         Route::post('/register', 'register')->name('register');
     });
 
+
+
     Route::controller(LoginController::class)->group(function() {
         Route::get('/login', 'showLogin')->name('login.show');
         Route::post('/login', 'login')->name('login');
     });
 
+
+
     Route::get('/logout', [LogoutController::class], 'logout')->name('logout');
+
+
 
     Route::controller(SongController::class)->group(function()
     {
@@ -78,11 +89,15 @@ Route::middleware(['web'])->group(function () {
         Route::post('editSong/{id_song}','update')->name('updateSong.update');
         Route::get('destroySong/{id_song}', 'destroy')->name('deleteSong.destroy');
     });
-Route::controller(Controller::class)->group(function()
-{
-    Route::get('/', 'home')->name('home');
-    Route::get('login', 'login')->name('login');
-    Route::get('register', 'register')->name('register');
-    Route::get('screen', 'screen')->name('screen');
-});
 
+
+    Route::controller(Controller::class)->group(function()
+    {
+        // Route::get('/', 'home')->name('home');
+        // Route::get('login', 'login')->name('login');
+        // Route::get('register', 'register')->name('register');
+        Route::get('screen', 'screen')->name('screen');
+    });
+
+});
+    

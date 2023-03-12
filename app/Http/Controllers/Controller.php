@@ -10,17 +10,17 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function home(){
-        return view('home');
-    }
+    // public function home(){
+    //     return view('home');
+    // }
 
-    public function login(){
-        return view('login');
-    }
+    // public function login(){
+    //     return view('login');
+    // }
 
-    public function register(){
-        return view('register');
-    }
+    // public function register(){
+    //     return view('register');
+    // }
     public function screen(){
         return view('screen');
     }
