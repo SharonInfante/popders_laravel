@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -42,6 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+<<<<<<< HEAD
+=======
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+>>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a
     public function songs()
     {
         return $this->hasMany(Song::class);

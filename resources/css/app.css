@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+>>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .body{
@@ -43,3 +48,5 @@ li{
     margin-right: 5px;
     color: #ffffff;
 }           
+=======
+>>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a

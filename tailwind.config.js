@@ -6,6 +6,7 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
+<<<<<<< HEAD
     fontFamily:{
       'poppins':['Poppins']
     },
@@ -22,4 +23,9 @@ module.exports = {
        }
       //  require('@tailwindcss/forms')
   ],
+=======
+    extend: {},
+  },
+  plugins: [],
+>>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a
 }

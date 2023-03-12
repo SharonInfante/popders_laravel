@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Song;
+use Illuminate\Support\Facades\Auth;
 
 class SongController extends Controller
 {
     public function index()
-    {   
+    {
         $songs = Song::all();
         return view('/playlist', compact('songs'));
     }
 
     public function create()
     {
+        //  $user = Auth::user();
+
+        // if (!$user) {
+        //     return redirect()->route('login.show');
+        // }
+
+        // dd('User:', $user, 'Session:', session()->all());
+
         return view('addSong');
     }
 
@@ -22,6 +31,7 @@ class SongController extends Controller
     {
         $songs = new Song();
 
+        $songs->id_user = Auth::id();
         $songs->title = $request->title;
         $songs->artist = $request->artist;
         $songs->genre = $request->genre;
@@ -34,20 +44,23 @@ class SongController extends Controller
     }
 
     public function show($id_song)
-    {   
-        $songs = Song::find($id_song);  
+    {
+        $songs = Song::find($id_song);
         return view('songDescription', compact('songs'));
     }
 
-    public function edit(Song $songs) 
-    {   
+    public function edit($id_song)
+    {
+        $songs = Song::find($id_song);
         return view('editSong', compact('songs'));
     }
 
     public function update(Request $request, $id)
     {
+        $id_user = Auth::id();
         $song = Song::findOrFail($id);
 
+        $song->id_user = $id_user;
         $song->title = $request->input('title');
         $song->artist = $request->input('artist');
         $song->genre = $request->input('genre');
@@ -59,7 +72,13 @@ class SongController extends Controller
         return redirect()->route('songDescription.show', $song);
     }
 
-    
-}
+    public function destroy(Request $request, $id)
+    {
 
-?>
+        $song = Song::findOrFail($id);
+        $song->id_song = $request->id_song;
+        $song->delete();
+
+        return redirect()->route('playlist.index')->with('Song delete');
+    }
+}

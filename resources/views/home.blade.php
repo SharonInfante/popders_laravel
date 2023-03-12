@@ -1,4 +1,5 @@
 @extends('template')
+<<<<<<< HEAD
 @php
     function getPhrase()
     {
@@ -186,3 +187,17 @@
         searchInfo("Barcelona");
     </script>
 @endsection
+=======
+
+@section('content')
+
+<a href="{{route('login')}}">Longin</a>
+<a href="{{route('register')}}">Register</a>
+
+<h1>POPDERS HOME</h1>
+
+
+<a href="{{route('playlist.index')}}">Playlist</a>
+
+@endsection
+>>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a

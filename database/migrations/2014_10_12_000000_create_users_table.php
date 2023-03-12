@@ -15,9 +15,14 @@ return new class extends Migration
             $table->id('id_user');
             $table->string('name');
             $table->string('email')->unique();
+<<<<<<< HEAD
             $table->enum('role', [1,2,3])->default(1); //recibe números según cantidad de roles, a definir en el modelo,
             $table->string('password');
             $table->string('avatar');
+=======
+            $table->string('password'); 
+            $table->string('avatar')->nullable();
+>>>>>>> 040f1116d0d82be028ad9f89a16c38565aee5c8a
             $table->rememberToken();
             $table->timestamps();
         });
