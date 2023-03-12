@@ -20,7 +20,6 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'role' => 1,
             'password' => $this->faker->password(), // password
             'avatar'=>$this->faker->url(),
             'remember_token' => Str::random(3),

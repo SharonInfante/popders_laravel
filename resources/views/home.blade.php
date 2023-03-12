@@ -7,6 +7,7 @@
 
 <h1>POPDERS HOME</h1>
 
+
 <a href="{{route('playlist.index')}}">Playlist</a>
 
 @endsection

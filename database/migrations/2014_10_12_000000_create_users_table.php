@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id('id_user');
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', [1,2,3])->default(1); //recibe números según cantidad de roles, a definir en el modelo,
-            $table->string('password');
-            $table->string('avatar');
+            $table->string('password'); 
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
