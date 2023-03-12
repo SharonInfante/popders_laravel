@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Song;
+use Illuminate\Support\MessageBag;
 
 class SongController extends Controller
 {
     public function index()
-    {   
+    {
         $songs = Song::all();
         return view('/playlist', compact('songs'));
     }
@@ -34,15 +35,15 @@ class SongController extends Controller
     }
 
     public function show($id_song)
-    {   
-        $songs = Song::find($id_song);  
+    {
+        $songs = Song::find($id_song);
         return view('songDescription', compact('songs'));
     }
 
-    public function edit(Song $songs) 
-    {   
-        
-        return view('editSong', compact('songs'));
+    public function edit(Song $songs)
+    {
+        $errors = session('errors', new MessageBag());
+        return view('editSong', compact('songs', 'errors'));
     }
 
     public function update(Request $request, $id)
@@ -59,11 +60,8 @@ class SongController extends Controller
 
         return redirect()->route('songDescription.show', $song);
     }
-    public function destroy(Song $song) 
-    {   
+    public function destroy(Song $song)
+    {
         $song->delete();
     }
-    
 }
-
-?>

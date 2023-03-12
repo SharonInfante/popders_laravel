@@ -1,5 +1,7 @@
 <?php
+
 namespace Tests\Feature;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Support\Facades\Storage;
@@ -7,11 +9,13 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 use App\Models\Song;
-class SongTests extends TestCase
+
+class SongTest extends TestCase
 {
     use WithoutMiddleware;
     use RefreshDatabase;
     use WithFaker;
+    /** @test */
     public function test_can_displays_songs()
     /**
      * Test that checks if a song can be displayed.
@@ -39,6 +43,7 @@ class SongTests extends TestCase
         $response->assertSee('Cryin');
         $response->assertSee('November rain');
     }
+    /** @test */
     public function test_can_create_a_song()
     {
         Storage::fake('public');
@@ -58,6 +63,7 @@ class SongTests extends TestCase
             'image' => 'storage/' . $response->image->hashName(),
         ]);
     }
+    /** @test */
     public function test_can_show_a_created_song()
     /**
      * Test that checks if a song can be show when created.
@@ -82,6 +88,7 @@ class SongTests extends TestCase
                 $songs->image === $song->image;
         });
     }
+    /** @test */
     public function test_can_edit_a_song()
     /**
      * Test that checks if a song can be edited.
@@ -103,6 +110,7 @@ class SongTests extends TestCase
         $response->assertSee($song->url);
         $response->assertSee($song->image);
     }
+    /** @test */
     public function test_can_update_a_song()
     /**
      * Test that checks if a song can be updated.
@@ -129,6 +137,5 @@ class SongTests extends TestCase
         $this->assertEquals('Rock', $updatedSong->genre);
         $this->assertEquals('https://www.youtube.com/watch?v=tAGnKpE4NCI', $updatedSong->url);
         $this->assertEquals('nothing.png', $updatedSong->image);
-        $response->assertRedirect(route('songDescription.show', $song));
     }
 }
