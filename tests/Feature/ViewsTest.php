@@ -11,6 +11,7 @@ class ViewsTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
+    /** @test */
     public function can_display_add_song_view()
 
     /** Test that checks if the add song view can be displayed*/
@@ -21,7 +22,7 @@ class ViewsTest extends TestCase
         $response->assertViewIs('addSong');
     }
 
-
+    /** @test */
     public function can_display_edit_song_view()
     {
         $song = Song::factory()->create();
