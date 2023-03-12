@@ -78,5 +78,11 @@ Route::middleware(['web'])->group(function () {
         Route::post('editSong/{id_song}','update')->name('updateSong.update');
         Route::get('destroySong/{id_song}', 'destroy')->name('deleteSong.destroy');
     });
+Route::controller(Controller::class)->group(function()
+{
+    Route::get('/', 'home')->name('home');
+    Route::get('login', 'login')->name('login');
+    Route::get('register', 'register')->name('register');
+    Route::get('screen', 'screen')->name('screen');
 });
 ?>

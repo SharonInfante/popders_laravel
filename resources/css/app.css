@@ -1,5 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.body{
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    height: 70vh;
+    width: 80vw;
+    margin-top: 8vh;
+    padding: 20px;
+}
+
+.div-content{
+    width: 100vw;
+    height: 100vh;
+}
+.d-content{
+    height: 75vh;
+    width: 80vw;
+    padding: 20px;
+}
+.menu{
+    height: 100vh;
+    width: 70px;
+    padding: 20px 5px;
+}
+.d-menu{
+    height: 100vh;
+    width: 5px;
+}
+.screen{
+    height: 75vh;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin-right: 5px;
+    color: #ffffff;
+}           
