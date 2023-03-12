@@ -85,4 +85,4 @@ Route::controller(Controller::class)->group(function()
     Route::get('register', 'register')->name('register');
     Route::get('screen', 'screen')->name('screen');
 });
-?>
+

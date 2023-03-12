@@ -1,37 +1,5 @@
 @extends('template')
 
-@section('content')
-
-<form method="POST" action="/register" class="container aling-center p-5">
-    @csrf
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Full name</label>
-      <input type="text" class="form-control" id="exampleInputText" name="name">
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword" name="password">
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation">
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Avatar</label>
-        <input type="file" class="form-control" id="exampleInputAvatar" name="avatar">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-@endsection
 @section('title', 'Video del día')
 
 @section('content')
@@ -65,7 +33,7 @@
           <a href="{{ route('home') }}"> <img class="mx-auto h-24 w-auto" src="{{ asset('img/icons/logo-popCoder-multicolor.png') }}" alt="logo"></a>
           <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-indigo-600">Crea tu usuario</h2>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST" enctype="multipart/form-data">
+      <form class="mt-8 space-y-6" method="POST" action="/register" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="remember" value="true">
         <div class="-space-y-5px rounded-md shadow-sm">
