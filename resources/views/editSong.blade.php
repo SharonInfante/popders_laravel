@@ -12,8 +12,6 @@
 
         @csrf
 
-        @method('PUT')
-
         <label>
             Title
             <input type="text" name="title" value="{{$songs->title}}">
