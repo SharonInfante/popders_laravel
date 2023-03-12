@@ -20,6 +20,7 @@ Route::controller(Controller::class)->group(function()
     Route::get('/', 'home')->name('home');
     Route::get('login', 'login')->name('login');
     Route::get('register', 'register')->name('register');
+    Route::get('screen', 'screen')->name('screen');
 });
 
 

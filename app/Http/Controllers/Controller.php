@@ -21,4 +21,7 @@ class Controller extends BaseController
     public function register(){
         return view('register');
     }
+    public function screen(){
+        return view('screen');
+    }
 }
