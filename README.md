@@ -12,13 +12,7 @@ This project is a platform created to manage the songs to say good morning to th
 
 ## Screenshots :desktop_computer:
 ### This is the Popder's Logo
-![This is an image](./frontend/assets/icons/logo-popCoder-multicolor.png)
-### These are the page views:
-![This is an image](./frontend/assets/img/home.png)
-![This is an image](./frontend/assets/img/list.png)
-![This is an image](./frontend/assets/img/table.png)
-![This is an image](./frontend/assets/img/addsong.png)
-![This is an image](./frontend/assets/img/editor.png)
+![This is an image](./public/img/icons/logo-popCoder-multicolor.png)
 
 ## Tech/framework used :electric_plug:
 * **Laravel** - utilizado para crear la estructura de la página web
